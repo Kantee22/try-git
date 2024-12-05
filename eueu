@@ -1,0 +1,59 @@
+class Person:
+    def __init__(self, name: str, born: int = 500, job: str = "Unemployed", level: int = 1, money: int = 0):
+        if name == "":
+            raise ValueError("Name can't be empty")
+        if not isinstance(name, str):
+            raise TypeError
+
+        if not isinstance(job,str):
+            raise TypeError
+
+        if job == "":
+            raise ValueError("Job can't be empty")
+
+        if not isinstance(level,int):
+            raise TypeError
+
+        if level <= 0:
+            raise ValueError("Ahhhhhh")
+
+        self.__name = name
+        self.__born = born
+        self.__job = job
+        self.__level = level
+        self.money = money
+
+    def __str__(self):
+        return f"{self.__name} Born in year {self.__born} , {self.__job} Level {self.level} $ {self.money}"
+
+    @property
+    def name(self):
+        return self.__name
+
+    @property
+    def born(self):
+        return self.__born
+
+    @property
+    def job(self):
+        return self.__job
+
+    @property
+    def level(self):
+        return self.__level
+
+    @property
+    def money(self):
+        return self.__money
+
+    @money.setter
+    def money(self, money):
+        if money < 0:
+            raise ValueError("AHHHHH")
+        if not isinstance(money, int):
+            raise TypeError
+        self.__money = money
+
+
+p1 = Person("Gun", 520, "NPC", 20, 1)
+print(p1)
